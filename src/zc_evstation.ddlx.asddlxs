@@ -1,0 +1,121 @@
+@Metadata.layer: #CORE
+
+@UI: {
+  headerInfo: {
+    typeName: 'EV Station',
+    typeNamePlural: 'EV Stations',
+    title: {
+      type: #STANDARD,
+      label: 'Station',
+      value: 'StationId'
+    }
+  }
+}
+
+annotate entity ZC_EVSTATION with
+{
+  @UI.facet: [
+    {
+      id: 'StationHeader',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      label: 'Station Details',
+      position: 10
+    },
+    {
+      id: 'StationSlots',
+      purpose: #STANDARD,
+      type: #LINEITEM_REFERENCE,
+      label: 'Charging Slots',
+      position: 20,
+      targetElement: '_Slot'
+    }
+  ]
+
+  @UI: {
+    lineItem: [
+      { position: 10, label: 'Station ID' }
+    ],
+    identification: [
+      { position: 10, label: 'Station ID' }
+    ],
+    selectionField: [
+      { position: 10 }
+    ]
+  }
+  StationId;
+
+  @UI: {
+    lineItem: [
+      { position: 20, label: 'Station Name' }
+    ],
+    identification: [
+      { position: 20, label: 'Station Name' }
+    ],
+    selectionField: [
+      { position: 20 }
+    ]
+  }
+  StationName;
+
+  @UI: {
+    lineItem: [
+      { position: 30, label: 'Location' }
+    ],
+    identification: [
+      { position: 30, label: 'Location' }
+    ],
+    selectionField: [
+      { position: 30 }
+    ]
+  }
+  Location;
+
+  @UI: {
+    lineItem: [
+      { position: 40, label: 'Status' }
+    ],
+    identification: [
+      { position: 40, label: 'Status' }
+    ],
+    selectionField: [
+      { position: 40 }
+    ]
+  }
+  Status;
+
+  @UI: {
+    identification: [
+      { position: 50, label: 'Created By' }
+    ]
+  }
+  LocalCreatedBy;
+
+  @UI: {
+    identification: [
+      { position: 60, label: 'Created At' }
+    ]
+  }
+  LocalCreatedAt;
+
+  @UI: {
+    identification: [
+      { position: 70, label: 'Last Changed By' }
+    ]
+  }
+  LocalLastChangedBy;
+
+  @UI: {
+    identification: [
+      { position: 80, label: 'Local Last Changed At' }
+    ]
+  }
+  LocalLastChangedAt;
+
+  @UI: {
+    identification: [
+      { position: 90, label: 'Last Changed At' }
+    ]
+  }
+  LastChangedAt;
+}

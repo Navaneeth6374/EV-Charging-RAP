@@ -1,0 +1,61 @@
+managed implementation in class zbp_i_evstation unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZI_EVSTATION alias Evstation
+persistent table zev_station
+draft table ZEV_STATION_D
+lock master total etag LocalLastChangedAt
+authorization master ( instance )
+etag master LocalLastChangedAt
+{
+  create ( authorization : global );
+  update;
+  delete;
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  association _Slot { create; with draft; }
+   mapping for zev_station
+  {
+    StationId          = STATION_ID;
+    StationName        = STATION_NAME;
+    Location            = LOCATION;
+    Status              = STATUS;
+    LocalCreatedBy      = LOCAL_CREATED_BY;
+    LocalCreatedAt      = LOCAL_CREATED_AT;
+    LocalLastChangedBy  = LOCAL_LAST_CHANGED_BY;
+    LocalLastChangedAt  = LOCAL_LAST_CHANGED_AT;
+    LastChangedAt       = LAST_CHANGED_AT;
+  }
+}
+
+define behavior for ZI_EVSLOT //alias <alias_name>
+persistent table zev_slot
+draft table ZEV_SLOT_D
+lock dependent by _Station
+authorization dependent by _Station
+etag master LocalLastChangedAt
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) StationId;
+  association _Station { with draft; }
+   mapping for zev_slot
+  {
+    SlotId              = SLOT_ID;
+    StationId           = STATION_ID;
+    SlotDate            = SLOT_DATE;
+    StartTime            = START_TIME;
+    EndTime              = END_TIME;
+    Status               = STATUS;
+    LocalCreatedBy       = LOCAL_CREATED_BY;
+    LocalCreatedAt       = LOCAL_CREATED_AT;
+    LocalLastChangedBy   = LOCAL_LAST_CHANGED_BY;
+    LocalLastChangedAt   = LOCAL_LAST_CHANGED_AT;
+    LastChangedAt        = LAST_CHANGED_AT;
+  }
+}

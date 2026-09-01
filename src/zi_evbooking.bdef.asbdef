@@ -1,0 +1,38 @@
+managed implementation in class zbp_i_evbooking unique;
+strict ( 2 );
+with draft;
+with cross associations;
+define behavior for ZI_EVBOOKING alias Evbooking
+persistent table zev_customer
+draft table ZEV_CUSTOMER_D
+lock master total etag LocalLastChangedAt
+authorization master ( instance )
+etag master LocalLastChangedAt
+
+{
+  create ( authorization : global );
+  update;
+  delete;
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  association _Station { with draft; }
+   mapping for zev_customer
+  {
+    BookingId          = BOOKING_ID;
+    VehicleNo          = VEHICLE_NO;
+    CustomerName       = CUSTOMER_NAME;
+    CustomerId         = CUSTOMER_ID;
+    StationId          = STATION_ID;
+    SlotId             = SLOT_ID;
+    BookingStatus      = BOOKING_STATUS;
+    LocalCreatedBy     = LOCAL_CREATED_BY;
+    LocalCreatedAt     = LOCAL_CREATED_AT;
+    LocalLastChangedBy = LOCAL_LAST_CHANGED_BY;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+    LastChangedAt      = LAST_CHANGED_AT;
+  }
+}

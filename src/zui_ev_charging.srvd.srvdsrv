@@ -1,0 +1,6 @@
+@EndUserText.label: 'EV Charging'
+define service ZUI_EV_CHARGING {
+  expose ZC_EVSTATION as EVStation;
+  expose ZC_EVSLOT    as EVSlot;
+  expose ZC_EVBOOKING as EVBooking;
+}

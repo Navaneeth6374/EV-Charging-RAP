@@ -1,0 +1,152 @@
+@Metadata.layer: #CORE
+
+@UI: {
+  headerInfo: {
+    typeName: 'EV Booking',
+    typeNamePlural: 'EV Bookings',
+    title: {
+      type: #STANDARD,
+      label: 'Booking',
+      value: 'BookingId'
+    }
+  }
+}
+
+annotate entity ZC_EVBOOKING with
+{
+  @UI.facet: [
+    {
+      id: 'BookingHeader',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      label: 'Booking Details',
+      position: 10
+    }
+  ]
+
+  @UI: {
+    lineItem: [
+      { position: 10, label: 'Booking ID' }
+    ],
+    identification: [
+      { position: 10, label: 'Booking ID' }
+    ],
+    selectionField: [
+      { position: 10 }
+    ]
+  }
+  BookingId;
+
+  @UI: {
+    lineItem: [
+      { position: 20, label: 'Vehicle No' }
+    ],
+    identification: [
+      { position: 20, label: 'Vehicle No' }
+    ],
+    selectionField: [
+      { position: 20 }
+    ]
+  }
+  VehicleNo;
+
+  @UI: {
+    lineItem: [
+      { position: 30, label: 'Customer Name' }
+    ],
+    identification: [
+      { position: 30, label: 'Customer Name' }
+    ],
+    selectionField: [
+      { position: 30 }
+    ]
+  }
+  CustomerName;
+
+  @UI: {
+    lineItem: [
+      { position: 40, label: 'Customer ID' }
+    ],
+    identification: [
+      { position: 40, label: 'Customer ID' }
+    ],
+    selectionField: [
+      { position: 40 }
+    ]
+  }
+  CustomerId;
+
+  @UI: {
+    lineItem: [
+      { position: 50, label: 'Station ID' }
+    ],
+    identification: [
+      { position: 50, label: 'Station ID' }
+    ],
+    selectionField: [
+      { position: 50 }
+    ]
+  }
+  StationId;
+
+  @UI: {
+    lineItem: [
+      { position: 60, label: 'Slot ID' }
+    ],
+    identification: [
+      { position: 60, label: 'Slot ID' }
+    ],
+    selectionField: [
+      { position: 60 }
+    ]
+  }
+  SlotId;
+
+  @UI: {
+    lineItem: [
+      { position: 70, label: 'Booking Status' }
+    ],
+    identification: [
+      { position: 70, label: 'Booking Status' }
+    ],
+    selectionField: [
+      { position: 70 }
+    ]
+  }
+  BookingStatus;
+
+  @UI: {
+    identification: [
+      { position: 80, label: 'Created By' }
+    ]
+  }
+  LocalCreatedBy;
+
+  @UI: {
+    identification: [
+      { position: 90, label: 'Created At' }
+    ]
+  }
+  LocalCreatedAt;
+
+  @UI: {
+    identification: [
+      { position: 100, label: 'Last Changed By' }
+    ]
+  }
+  LocalLastChangedBy;
+
+  @UI: {
+    identification: [
+      { position: 110, label: 'Local Last Changed At' }
+    ]
+  }
+  LocalLastChangedAt;
+
+  @UI: {
+    identification: [
+      { position: 120, label: 'Last Changed At' }
+    ]
+  }
+  LastChangedAt;
+}

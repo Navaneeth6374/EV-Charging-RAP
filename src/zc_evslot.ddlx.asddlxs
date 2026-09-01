@@ -1,0 +1,133 @@
+@Metadata.layer: #CORE
+
+@UI: {
+  headerInfo: {
+    typeName: 'EV Slot',
+    typeNamePlural: 'EV Slots',
+    title: {
+      type: #STANDARD,
+      label: 'Slot',
+      value: 'SlotId'
+    }
+  }
+}
+
+annotate entity ZC_EVSLOT with
+{
+  @UI.facet: [
+    {
+      id: 'SlotHeader',
+      purpose: #STANDARD,
+      type: #IDENTIFICATION_REFERENCE,
+      label: 'Slot Details',
+      position: 10
+    }
+  ]
+
+  @UI: {
+    lineItem: [
+      { position: 10, label: 'Slot ID' }
+    ],
+    identification: [
+      { position: 10, label: 'Slot ID' }
+    ],
+    selectionField: [
+      { position: 10 }
+    ]
+  }
+  SlotId;
+
+  @UI: {
+    lineItem: [
+      { position: 20, label: 'Station ID' }
+    ],
+    identification: [
+      { position: 20, label: 'Station ID' }
+    ],
+    selectionField: [
+      { position: 20 }
+    ]
+  }
+  StationId;
+
+  @UI: {
+    lineItem: [
+      { position: 30, label: 'Slot Date' }
+    ],
+    identification: [
+      { position: 30, label: 'Slot Date' }
+    ],
+    selectionField: [
+      { position: 30 }
+    ]
+  }
+  SlotDate;
+
+  @UI: {
+    lineItem: [
+      { position: 40, label: 'Start Time' }
+    ],
+    identification: [
+      { position: 40, label: 'Start Time' }
+    ]
+  }
+  StartTime;
+
+  @UI: {
+    lineItem: [
+      { position: 50, label: 'End Time' }
+    ],
+    identification: [
+      { position: 50, label: 'End Time' }
+    ]
+  }
+  EndTime;
+
+  @UI: {
+    lineItem: [
+      { position: 60, label: 'Status' }
+    ],
+    identification: [
+      { position: 60, label: 'Status' }
+    ],
+    selectionField: [
+      { position: 60 }
+    ]
+  }
+  Status;
+
+  @UI: {
+    identification: [
+      { position: 70, label: 'Created By' }
+    ]
+  }
+  LocalCreatedBy;
+
+  @UI: {
+    identification: [
+      { position: 80, label: 'Created At' }
+    ]
+  }
+  LocalCreatedAt;
+
+  @UI: {
+    identification: [
+      { position: 90, label: 'Last Changed By' }
+    ]
+  }
+  LocalLastChangedBy;
+
+  @UI: {
+    identification: [
+      { position: 100, label: 'Local Last Changed At' }
+    ]
+  }
+  LocalLastChangedAt;
+
+  @UI: {
+    identification: [
+      { position: 110, label: 'Last Changed At' }
+    ]
+  }
+  LastChangedAt;
+}
